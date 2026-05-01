@@ -28,6 +28,7 @@ func (r *productMongoRepository) Create(ctx context.Context, p *product.Product)
 }
 
 // GetByID obtiene un producto por su ID de MongoDB
+// id es un string tipado; el driver BSON lo trata como valor literal, no como operador.
 func (r *productMongoRepository) GetByID(ctx context.Context, id string) (*product.Product, error) {
 	var p product.Product
 	err := r.collection.FindOne(ctx, bson.M{"id": id}).Decode(&p)

@@ -30,8 +30,8 @@ type CreateProductRequest struct {
 
 // UpdateProductRequest datos para actualizar un producto (todos opcionales)
 type UpdateProductRequest struct {
-	Name        string  `json:"name" validate:"omitempty,min=3"`
-	Description string  `json:"description"`
-	Price       float64 `json:"price" validate:"omitempty,gt=0"`
-	Stock       int     `json:"stock" validate:"omitempty,gte=0"`
+	Name        string   `json:"name" validate:"omitempty,min=3"`
+	Description string   `json:"description"`
+	Price       float64  `json:"price" validate:"omitempty,gt=0"`
+	Stock       *int     `json:"stock" validate:"omitempty,gte=0"`
 }

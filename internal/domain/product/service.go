@@ -74,8 +74,8 @@ func (s *service) UpdateProduct(ctx context.Context, id string, req UpdateProduc
 	if req.Price > 0 {
 		product.Price = req.Price
 	}
-	if req.Stock >= 0 {
-		product.Stock = req.Stock
+	if req.Stock != nil {
+		product.Stock = *req.Stock
 	}
 	product.UpdatedAt = time.Now()
 

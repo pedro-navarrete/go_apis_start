@@ -28,6 +28,7 @@ func (r *userMongoRepository) Create(ctx context.Context, u *user.User) error {
 }
 
 // GetByID obtiene un usuario por su ID de MongoDB
+// id es un string tipado; el driver BSON lo trata como valor literal, no como operador.
 func (r *userMongoRepository) GetByID(ctx context.Context, id string) (*user.User, error) {
 	var u user.User
 	err := r.collection.FindOne(ctx, bson.M{"id": id}).Decode(&u)
